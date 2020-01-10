@@ -4,8 +4,10 @@ $('.btn').click(function (event) {
     event.preventDefault();
     const artistSearched = $(this).siblings('input').val();
     getVideo(artistSearched);
+
     $('#youTube').empty();
     newsAPI(artistSearched);
+
 });
 
 
@@ -26,18 +28,22 @@ function getVideo(artist) {
           console.log(data);
           embedVideo(data);
       },
+
     });
   }
 
   function embedVideo(data) {
 
     for(let i = 0; i<data.items.length; i++){
+
         const iFrame = "<iframe height='200' width='200' class='mb-3' src='https://www.youtube.com/embed/"+ data.items[i].id.videoId +"'></iframe>"
+
         const videoTitle = "<h5>"+data.items[i].snippet.title+"</h5>"
           $('#youTube').append(videoTitle);
           $('#youTube').append(iFrame);
       
     }
+
 }
 
 function newsAPI(artist){
@@ -64,5 +70,6 @@ function newsAPI(artist){
     });
 
 }
+
 
 
