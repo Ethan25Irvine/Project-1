@@ -13,7 +13,7 @@ $(function() {
                 success: function(data, status, jqXHR){
                     $("#output").html();
                     for(var i=0; i < data[1].length;i++){
-            //            console.log(data);
+                        console.log(data);
                         $("#output").prepend("<div><div class='btn-primary'><a href="
                         +data[3][i]+"><h1>" + data[1][i]+ "</h1>" + "<p>" + data[2][i] +
                         "</p></a></div></div>");
