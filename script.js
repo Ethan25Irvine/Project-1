@@ -65,7 +65,7 @@ function newsAPI(artist){
         for(let i = 0; i < 5; i++){
         
 
-            $('.articleDisplay').append("<div class= 'card bg-primary'><img class='card-img-top' src='"+Response.articles[i].image+"'></img><div class='card-body'><h5 class='card-title'>"+Response.articles[i].title+"</h5><p class='card-text'>"+Response.articles[i].description+"</p></div></div>");
+            $('.articleDisplay').append("<div class= 'card bg-dark text-white mb-3'><img class='card-img-top' src='"+Response.articles[i].image+"'></img><div class='card-body'><h3 class='card-header'>"+Response.articles[i].title+"</h3><p id='articletext'>"+Response.articles[i].description+"</p></div></div>");
         
         }
         console.log(Response);
@@ -94,7 +94,7 @@ $(function billboardFunction() {
         for (let i = 1; i < 11; i++) {
 
             $('#artistlist').append(
-                '<li class="col-lg-1" id="A">' + response.content[i].artist+ '</li>')
+                '<li id="A">' + response.content[i].artist+ '</li>')
             }
         console.log(response.content.length);
     });
