@@ -1,7 +1,11 @@
-$(document).ready(function(){
+$(document).ready(function pageLoad(){
     billboardFunction();
+    newsAPI();
+    getVideo();
 })
-
+$("#home").click(function(){
+    pageLoad();
+})
 $('.btn').click(function (event) {
     event.preventDefault();
     const artistSearched = $(this).siblings('input').val();
@@ -13,7 +17,7 @@ $('.btn').click(function (event) {
 });
 
 
-  
+//   youtube api
 function getVideo(artist) {
     $.ajax({
       type: 'GET',
@@ -48,24 +52,23 @@ function getVideo(artist) {
 
 }
 
+// googleNews API
 function newsAPI(artist){
     console.log(artist);
 
-    // google API
+    
     const dayURL = 'https://gnews.io/api/v3/search?q='+artist+'&token=f2a089b473671f2cf60c9c338b0c2d06'
     
     $.ajax({
         url: dayURL,
         method: "GET",
     }).then(function (Response) {
-        // const articleTitle = Response.articles[i].title
-        // const articleDescription = Response.articles[i].description
-        // const articleImage = Response.article[i].image
+       
         $('.articleDisplay').empty();
         for(let i = 0; i < 5; i++){
         
 
-            $('.articleDisplay').append("<div class= 'card bg-dark text-white mb-3'><img class='card-img-top' src='"+Response.articles[i].image+"'></img><div class='card-body'><h3 class='card-header'>"+Response.articles[i].title+"</h3><p id='articletext'>"+Response.articles[i].description+"</p></div></div>");
+            $('.articleDisplay').append("<div class= 'card bg-dark text-white mb-3'><img class='card-img-top' src='"+Response.articles[i].image+"'></img><div class='card-body'><a href='"+Response.articles[i].url+"' target='_blank' ><h3 class='card-header' >"+Response.articles[i].title+"</h3></a><p id='articletext'>"+Response.articles[i].description+"</p></div></div>");
         
         }
         console.log(Response);
@@ -73,30 +76,30 @@ function newsAPI(artist){
 
 }
 
-var cdt = moment().format('YYYY-MM-DD');
 
-var billboardlist = {
+// // billboard top 10 list api 
+
+function billboardFunction() {
+const cdt = moment().format('YYYY-MM-DD');
+
+const settings = {
 	"async": true,
 	"crossDomain": true,
-	"url": "https://billboard-api2.p.rapidapi.com/artist-100?date=" + cdt + "&range=1-10",
+	"url": "https://billboard-api2.p.rapidapi.com/artist-100?date=2020-01-11&range=1-10",
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "billboard-api2.p.rapidapi.com",
 		"x-rapidapi-key": "207e2be657msh6f04971c7f3e427p16486djsn0f3ffe48db38"
 	}
-} || []
+}
 
-$(function billboardFunction() {
-    $.ajax(billboardlist).done(function (response) {
-        console.log(response);
-        console.log(response.content[1].artist);
+$.ajax(settings).done(function (response) {
+    console.log(response);
+    for (let i = 1; i < 11; i++) {
+
+        $('#artistlist').append('<li id="A">' + response.content[i].artist+ '</li>')
         
-        for (let i = 1; i < 11; i++) {
-
-            $('#artistlist').append(
-                '<li id="A">' + response.content[i].artist+ '</li>')
-            }
-        console.log(response.content.length);
-    });
+    }
 });
 
+}
