@@ -1,8 +1,46 @@
-.navBG {
-    background-color: rgb(48,27,24)    ;
+#searchTerm {
+    width: 80%;
 }
+
 
 body{
-    background-image:url('https://images.pexels.com/photos/326311/pexels-photo-326311.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')
+    background-image: url("https://images.pexels.com/photos/242236/pexels-photo-242236.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
 }
 
+
+
+
+.heading img{
+    background-color: purple;
+    border-radius: 25px;
+    display: inline-block;
+    font-family: 'lobster';
+    width: 50%;
+}
+a {color: inherit;
+}
+h2 {
+    color: black;
+    padding-left: 1%;
+    padding-top: 1%;
+}
+p{
+    padding-bottom: 1%;
+    padding-left: 1%;
+    font-size: 25px;
+}
+div{
+    border-radius: 25px;
+}
+#output{
+    margin-top: 1%;
+    border-radius: 25px;
+    font-family: 'lobster';
+}
+h2{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#articletext{
+    font-size: medium;
+}
