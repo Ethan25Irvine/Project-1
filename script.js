@@ -65,7 +65,7 @@ function newsAPI(artist){
         for(let i = 0; i < 5; i++){
         
 
-            $('.articleDisplay').append("<div class= 'card bg-primary'><img class='card-img-top' src='"+Response.articles[i].image+"'></img><div class='card-body'><h5 class='card-title'>"+Response.articles[i].title+"</h5><p class='card-text'>"+Response.articles[i].description+"</p></div></div>");
+            $('.articleDisplay').append("<div class= 'card bg-primary'><img class='card-img-top' src='"+Response.articles[i].image+"'></img><div class='card-body'><h3 class='card-title'>"+Response.articles[i].title+"</h3><p class='card-text'>"+Response.articles[i].description+"</p></div></div>");
         
         }
         console.log(Response);
