@@ -44,3 +44,11 @@ h2{
 #articletext{
     font-size: medium;
 }
+
+.articleDisplay,
+#youTube
+{
+text-align: center;
+}
+
+
